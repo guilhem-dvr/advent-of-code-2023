@@ -1,1 +1,5 @@
 /target
+.vscode
+
+# ignore AoC input strings
+input/
