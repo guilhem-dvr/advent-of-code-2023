@@ -65,25 +65,25 @@ fn parse_game_records(records: &str) -> Vec<Game> {
                 .name("id")
                 .unwrap()
                 .as_str()
-                .parse::<usize>()
+                .parse()
                 .unwrap();
             let mut game = Game::new(id);
             game_records.split(';').for_each(|game_record| {
                 re_game_record.captures_iter(game_record).for_each(|c| {
                     if let Some(mat) = c.name("red") {
-                        let red = mat.as_str().parse::<usize>().unwrap();
+                        let red = mat.as_str().parse().unwrap();
                         if red > game.max_red {
                             game.max_red = red
                         }
                     }
                     if let Some(mat) = c.name("green") {
-                        let green = mat.as_str().parse::<usize>().unwrap();
+                        let green = mat.as_str().parse().unwrap();
                         if green > game.max_green {
                             game.max_green = green
                         }
                     }
                     if let Some(mat) = c.name("blue") {
-                        let blue = mat.as_str().parse::<usize>().unwrap();
+                        let blue = mat.as_str().parse().unwrap();
                         if blue > game.max_blue {
                             game.max_blue = blue
                         }
