@@ -53,31 +53,6 @@ impl Race {
     }
 }
 
-/*
-    vitesse = T
-    tdc = temps max - T
-    distance = vitesse * tdc
-    distance = T * temps_max - T^2
-    cource gagnée = distance - distance record - 1 > 0
-                  = - T^2 + temps_max * T - distance record - 1 > 0
-
-    T min, max sont les temps limites pour gagner la course.
-    Ils sont obtenus en resolvant l'équation polynomyale ci-dessus, pour une course donnée.
-
-    determinant = temps_max^2 - 4 * distance record
-
-    et T min, max = tdc/2 +/- racine(determinant)/2
-
-    ou
-
-    T min, max = tdc/2 +/- racine(tdc^2/4 + distance record)
-
-    ces temps limites peuvent ne pas être entiers. Ils doivent aussi être positifs.
-
-    => T min' = arrondi inf(T min) + 1
-       T max' = arrondi sup(T max) - 1
-*/
-
 #[cfg(test)]
 mod test {
     use super::*;
